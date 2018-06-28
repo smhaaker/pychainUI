@@ -1,7 +1,7 @@
 # Pychain Web Interface
 
 > A Vue.js project
-> Better UI for [pychain Link](https://github.com/smhaaker/pychain "pychain") project
+> Better UI for [pychain](https://github.com/smhaaker/pychain "pychain") project
 
 ## Build Setup
 
