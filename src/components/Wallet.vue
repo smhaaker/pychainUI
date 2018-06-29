@@ -3,7 +3,9 @@
          <div id="parent">
             <div id="wide">
                 <app-funds style="color:white"></app-funds>
-                <app-sendfunds></app-sendfunds></div>
+                <app-sendfunds></app-sendfunds>
+                <app-recenttransactions/>
+            </div>
             <div id="keys"><app-keys></app-keys>
             </div>
         </div>
@@ -25,9 +27,6 @@
     .btn{
         background-color: azure;
     }
-
-
-
 </style>
 
 <script>
@@ -36,7 +35,7 @@
     import Keys from './Keys.vue';
     import Funds from './Funds.vue';
     import Sendfunds from './Sendfunds.vue';
-
+    import Recenttransactions from './Recenttransactions.vue';
     export default {
         data () {
             return {
@@ -53,6 +52,7 @@
             'app-keys': Keys,
             'app-funds': Funds,
             'app-sendfunds': Sendfunds,
+            'app-recenttransactions': Recenttransactions,
         },
         methods: {
                 onCreateWallet: function () {
