@@ -1,25 +1,28 @@
 <template>
     <div>
-    <h3>Wallet Management Page</h3>
-    
-    <!-- <button class="btn btn-primary" @click="onLoadWallet">
-        Create Wallet To be fixed
-    </button> -->
-    <button>Create Wallet</button>
-    <!-- Grayed out if wallet is active Create new if no wallet file found -->
-
-    <!-- <app-info :myProp="public_key"></app-info> -->
-    <!-- <p class="keys">Wallet key public: {{wallet.public_key}}</p>
-    <p class="keys">Wallet key private: {{wallet.private_key}}</p> -->
-
-    <app-keys></app-keys>
-    <app-funds></app-funds>
-
-    <p>transactions: </p>
-    <h2>Send funds</h2>
+         <div id="parent">
+            <div id="wide">Send Funds</div>
+            <div id="keys"><app-keys></app-keys>
+            </div>
+        </div>
     </div>
 </template>
 <style>
+    #parent {
+    display: flex;
+    }
+    #keys {
+        width: 40%;
+        background: white;
+        /* Just so it's visible */
+    }
+    #wide {
+        flex: 1;
+        /* Grow to rest of container */
+        background: aquamarine;
+        /* Just so it's visible */
+    }
+
         .keys{
             white-space: pre-wrap;
             word-wrap: break-word;

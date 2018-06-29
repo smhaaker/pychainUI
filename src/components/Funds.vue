@@ -2,9 +2,9 @@
     <div>
         <p class="funds">Current Funds: {{funds}} {{onLoadWallet}}</p>
             <!-- Shows error in loading wallet only if error happens -->
-            <div v-if="error" class="alert alert-danger" role="alert">
+            <!-- <div v-if="error" class="alert alert-danger" role="alert">
                 {{ error }}
-            </div>
+            </div> -->
     </div>
 </template>
 
@@ -55,11 +55,5 @@
 </script>
 
 <style>
-        .funds{
-            width: 50%;
-            border: 2px solid black;
-            white-space: pre-wrap;
-            word-wrap: break-word;
-            padding: 5px;
-        }
+
 </style>

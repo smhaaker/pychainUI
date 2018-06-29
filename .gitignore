@@ -3,6 +3,9 @@ node_modules/
 dist/
 npm-debug.log
 yarn-error.log
+src/components/Account.vue
+src/components/NewComponent.vue
+src/components/User.vue
 
 # Editor directories and files
 .idea

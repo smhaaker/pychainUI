@@ -3,7 +3,7 @@ import App from './App.vue'
 import User from './components/User.vue';
 import VueRouter from 'vue-router';
 import axios from 'axios';
-import Account from './components/Account.vue';
+import Info from './components/Info.vue';
 import Wallet from './components/Wallet.vue';
 import Chain from './components/Chain.vue';
 import  { store } from './store/store';
@@ -15,6 +15,7 @@ Vue.use(axios);
 const routes = [
   { path: '/wallet', component: Wallet},
   { path: '/chain', component:Chain},
+  { path: '/info', component: Info},
   { path: '/', component: User},
 ];
 
