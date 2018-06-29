@@ -1,7 +1,9 @@
 <template>
     <div>
          <div id="parent">
-            <div id="wide">Send Funds</div>
+            <div id="wide">
+                <app-funds style="color:white"></app-funds>
+                <app-sendfunds></app-sendfunds></div>
             <div id="keys"><app-keys></app-keys>
             </div>
         </div>
@@ -9,27 +11,23 @@
 </template>
 <style>
     #parent {
-    display: flex;
+        display: flex;
     }
     #keys {
         width: 40%;
         background: white;
-        /* Just so it's visible */
     }
     #wide {
         flex: 1;
-        /* Grow to rest of container */
+        padding: 10px;
         background: aquamarine;
-        /* Just so it's visible */
+    }
+    .btn{
+        background-color: azure;
     }
 
-        .keys{
-            white-space: pre-wrap;
-            word-wrap: break-word;
-        }
-        .btn{
-            background-color: azure;
-        }
+
+
 </style>
 
 <script>
@@ -37,6 +35,7 @@
     import NewComponent from './NewComponent.vue';
     import Keys from './Keys.vue';
     import Funds from './Funds.vue';
+    import Sendfunds from './Sendfunds.vue';
 
     export default {
         data () {
@@ -53,6 +52,7 @@
             'app-info': NewComponent,
             'app-keys': Keys,
             'app-funds': Funds,
+            'app-sendfunds': Sendfunds,
         },
         methods: {
                 onCreateWallet: function () {

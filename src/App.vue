@@ -2,10 +2,10 @@
   <div id="app">
     <div>
     <ul class="nav">
-      <li role="presentation"><router-link to="/">Home</router-link></li>
-      <li role="presentation"><router-link to="/chain">Chain</router-link></li>
-      <li role="presentation"><router-link to="/wallet">Wallet</router-link></li>
-      <li role="presentation" style="float:right"><router-link to="/about">About</router-link></li>
+      <router-link tag="li" active-class="active" exact to="/"><a>Home</a></router-link>
+      <router-link tag="li" active-class="active" to="/chain"><a>Chain</a></router-link>
+      <router-link tag="li" active-class="active" to="/wallet"><a>Wallet</a></router-link>
+      <router-link tag="li" active-class="active" style="float:right" to="/about"><a>About</a></router-link>
       <app-funds id="fundsstyle"></app-funds>
     </ul>
     </div>
@@ -56,6 +56,9 @@ body{
     color: white;
     float: right;
     padding: 1px;
+    padding-right: 10px;
+            -webkit-transition-duration: 0.4s;
+        cursor: pointer;border-radius: 4px;
 }
 
 ul {
@@ -88,8 +91,10 @@ li a:hover:not(.active) {
     background-color: rgb(173, 0, 196);
 }
 
+
+
 .active {
-    background-color: #4CAF50;
+    background-color: rgb(173, 0, 196);
 }
 </style>
 

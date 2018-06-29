@@ -1,27 +1,10 @@
 <template>
-
-        <!-- <div class="center">
-            <div class="keywrapper">
-                <p class="toggleKeys" v-on:click="togglePublic = !togglePublic">togglePublic</p>
-                <p v-if="togglePublic" class="keys">Public Key: {{public_key}}</p>
-            </div>
-        </div>
-
-        <div class="center">
-            <div class="keywrapper">
-                <p class="toggleKeys" v-on:click="togglePrivate = !togglePrivate">togglePrivate</p>
-                <p v-if="togglePrivate" class="keys">Private Key: {{private_key}}</p>
-            </div>
-        </div> -->
-        <!-- <p class="btn btn-lg btn-primary" v-on:click="togglePrivate = !togglePrivate">togglePrivate</p> -->
-        <!-- <p v-if="togglePublic" class="keys">Public Key: {{public_key}}</p> -->
-        <!-- <p v-if="togglePrivate" class="keys">Private Key: {{private_key}}</p> -->
         <div>          
-                <p class="toggleKeys" v-on:click="togglePublic = !togglePublic">ShowPublic</p>
+                <p class="toggleKeys" v-on:click="togglePublic = !togglePublic">Show Public Key</p>
             <div class="keywrapper">
                 <p v-if="togglePublic" class="keys">Public Key: {{public_key}}</p>
             </div>
-                <p class="toggleKeys" v-on:click="togglePrivate = !togglePrivate">ShowPrivate</p>
+                <p class="toggleKeys" v-on:click="togglePrivate = !togglePrivate">Show Private Key</p>
             <div class="keywrapper">
                 <p v-if="togglePrivate" class="keys">Private Key: {{private_key}}</p>
             </div>
@@ -51,27 +34,27 @@ export default {
 </script>
 
 <style>
-    .center{
-        border: 1px solid black;
- 
-    }
-
     .keywrapper{
-        width: 95%;
+        width: 97%;
         margin-top: -10px;
         margin-left: 10px;
-        /* border: 2px solid black; */
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     }
 
     .toggleKeys{      
         margin-left: 10px;
-        color: brown;
         padding: 10px;
-        line-height: 0px;
-        background-color: black;
-        width: 13%;
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        width: 20%;
+        background-color: #555555;
+        color: white;
+        border: 2px solid #555555;
+        -webkit-transition-duration: 0.4s;
+        cursor: pointer;border-radius: 4px;
+    }
+
+    .toggleKeys:hover{
+        background-color: white; 
+        color: black; 
     }
 
     .keys{
