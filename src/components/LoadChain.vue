@@ -1,5 +1,10 @@
 <template>
+<div>
     <p>{{onLoadWallet}}</p>
+    <div v-if="error" class="alert alert-danger" role="alert">
+        {{ error }}
+    </div>
+</div>
 </template>
 
 <script>
@@ -13,7 +18,8 @@
                     public_key: 'none'
                 },
                 success: '',
-                funds: 0
+                error: '',
+                funds: 0,
                 }
             },
     computed: {

@@ -1,10 +1,6 @@
 <template>
     <div>
         <p class="funds">Current Funds: {{ getfunds }}</p>
-            <!-- Shows error in loading wallet only if error happens {{onLoadWallet}} -->
-            <!-- <div v-if="error" class="alert alert-danger" role="alert">
-                {{ error }}
-            </div> -->
 
     </div>
 </template>
@@ -20,7 +16,7 @@
                     public_key: 'none'
                 },
                 success: '',
-                funds: 0
+                funds: null
                 }
             },
     computed: {

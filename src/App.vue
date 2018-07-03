@@ -7,13 +7,13 @@
       <router-link tag="li" active-class="active" to="/wallet"><a>Wallet</a></router-link>
       <router-link tag="li" active-class="active" style="float:right" to="/about"><a>About</a></router-link>
       <app-funds id="fundsstyle"></app-funds>
-      <app-loadchain></app-loadchain>
+
     </ul>
     </div>
     <router-view></router-view>
     <!-- <app-user></app-user> -->
-    <!-- <p>Test Test</p> -->
-
+      <app-loadchain></app-loadchain>   
+    <!-- Onload The chain -->
     <!-- <appWallet></appWallet> -->
   </div>
 </template>
