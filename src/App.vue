@@ -7,6 +7,7 @@
       <router-link tag="li" active-class="active" to="/wallet"><a>Wallet</a></router-link>
       <router-link tag="li" active-class="active" style="float:right" to="/about"><a>About</a></router-link>
       <app-funds id="fundsstyle"></app-funds>
+      <app-loadchain></app-loadchain>
     </ul>
     </div>
     <router-view></router-view>
@@ -20,6 +21,7 @@
 <script>
 import Keys from './components/Keys.vue'
 import Funds from './components/Funds.vue';
+import LoadChain from './components/LoadChain.vue';
 export default {
   name: 'app',
   data () {
@@ -30,6 +32,7 @@ export default {
   components: {
             'app-keys': Keys,
             'app-funds': Funds,
+            'app-loadchain': LoadChain,
   }
 }
 </script>

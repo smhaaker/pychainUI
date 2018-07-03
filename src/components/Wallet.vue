@@ -37,11 +37,10 @@
     import Funds from './Funds.vue';
     import Sendfunds from './Sendfunds.vue';
     import Recenttransactions from './Recenttransactions.vue';
-    
+
     export default {
         data () {
             return {
-            public_key: '213123',
             wallet: {
                 private_key: 'none',
                 public_key: 'none'

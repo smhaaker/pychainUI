@@ -6,6 +6,8 @@ yarn-error.log
 src/components/Account.vue
 src/components/NewComponent.vue
 src/components/User.vue
+todo.txt
+
 
 # Editor directories and files
 .idea
