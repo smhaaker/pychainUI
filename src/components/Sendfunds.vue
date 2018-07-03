@@ -13,7 +13,6 @@ export default {
 </script>
 
 <style>
-    /* Move to sendfunds */
     input[type=text]{
         width: 100%;
         padding: 12px 20px;
@@ -24,11 +23,10 @@ export default {
         transition: 0.5s;
         outline: none;
         border-radius: 10px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     }
     input[type=text]:focus {
         border: 3px solid #555;
-        background-color: gray;
-        color: white;
     }
     .button {
         margin-left: 10px;
@@ -39,6 +37,7 @@ export default {
         border: 2px solid #555555;
         -webkit-transition-duration: 0.4s;
         cursor: pointer;border-radius: 4px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     }
     .button:hover{
         background-color: white; 
