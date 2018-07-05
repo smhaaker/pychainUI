@@ -1,17 +1,15 @@
 <template>
-        <div>          
-                <p class="toggleKeys" v-on:click="togglePublic = !togglePublic">Show Public Key</p>
-            <div class="keywrapper">
-                <p v-if="togglePublic" class="keys">Public Key: {{public_key}}</p>
-            </div>
-                <p class="toggleKeys" v-on:click="togglePrivate = !togglePrivate">Show Private Key</p>
-            <div class="keywrapper">
-                <p v-if="togglePrivate" class="keys">Private Key: {{private_key}}</p>
-            </div>
-            
+    <div>          
+        <p class="toggleKeys" v-on:click="togglePublic = !togglePublic">Show Public Key</p>
+        <div class="keywrapper">
+            <p v-if="togglePublic" class="keys">Public Key: {{public_key}}</p>
         </div>
-
-
+        <p class="toggleKeys" v-on:click="togglePrivate = !togglePrivate">Show Private Key</p>
+        <div class="keywrapper">
+            <p v-if="togglePrivate" class="keys">Private Key: {{private_key}}</p>
+        </div>
+        
+    </div>
 </template>
 
 <script>

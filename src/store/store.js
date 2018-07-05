@@ -8,6 +8,10 @@ export const store = new Vuex.Store({
         public_key: 'public_key',
         private_key: 'private_key',
         funds: 0,
+        current_block: null,
+        blockchain: [          
+            {"index":1, "previous_hash":"Tom"},
+        ],
     },
     getters: {
         // getfunds: state => {

@@ -1,18 +1,19 @@
 <template>
   <div id="app">
     <div>
-    <ul class="nav">
-      <router-link tag="li" active-class="active" exact to="/"><a>Home</a></router-link>
-      <router-link tag="li" active-class="active" to="/chain"><a>Chain</a></router-link>
-      <router-link tag="li" active-class="active" to="/wallet"><a>Wallet</a></router-link>
-      <router-link tag="li" active-class="active" style="float:right" to="/about"><a>About</a></router-link>
-      <app-funds id="fundsstyle"></app-funds>
-
-    </ul>
+        <ul class="nav">
+            <router-link tag="li" active-class="active" exact to="/"><a>Home</a></router-link>
+            <router-link tag="li" active-class="active" to="/chain"><a>Chain</a></router-link>
+            <router-link tag="li" active-class="active" to="/wallet"><a>Wallet</a></router-link>
+            <router-link tag="li" active-class="active" style="float:right" to="/about"><a>About</a></router-link>
+            <p id="fundsstyle">Current Block: {{current_block}}</p>
+            <app-funds id="fundsstyle"></app-funds>
+        </ul>
     </div>
-    <router-view></router-view>
-    <!-- <app-user></app-user> -->
-      <app-loadchain></app-loadchain>   
+        <router-view></router-view>
+        <!-- <app-user></app-user> -->
+        <app-loadchain></app-loadchain>   
+
     <!-- Onload The chain -->
     <!-- <appWallet></appWallet> -->
   </div>
@@ -29,10 +30,15 @@ export default {
       msg: 'FIRST',
     }
   },
+  computed: {
+    current_block(){
+        return this.$store.state.current_block
+    },
+  },
   components: {
-            'app-keys': Keys,
-            'app-funds': Funds,
-            'app-loadchain': LoadChain,
+    'app-keys': Keys,
+    'app-funds': Funds,
+    'app-loadchain': LoadChain,
   }
 }
 </script>
@@ -46,6 +52,10 @@ html {
         font-family: Verdana, Geneva, Tahoma, sans-serif;
         font-size: .8em;
         line-height: 20px;
+    }
+    h3{
+        color: gray;
+        padding: 10px;
     }
     #funds {
         float: right;

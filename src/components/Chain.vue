@@ -1,7 +1,7 @@
 <template>
 <div>
-    <h3>Chain Page!</h3>
-    <p>Look at the chain</p>
+    <h3>Blockchain Explorer</h3>
+    <p></p>
     <app-transactions></app-transactions>
 </div>
 </template>
@@ -17,3 +17,6 @@ export default {
 
 
 </script>
+
+<style>
+</style>
