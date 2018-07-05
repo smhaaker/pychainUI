@@ -12,7 +12,7 @@
                 <div class="transacationdiv">               
                     Block Number: {{block.index}}
                     Timestamp: {{block.timestamp}}
-
+                    <span>{{block.timestamp | unixFormat}}</span>
                     <!-- <span>{{ moment(block.timestamp).format('MMMM Do YYYY, h:mm:ss a') }}</span> -->
                     <!-- <span>{{ block.timestamp | moment('YYYY')}}</span> -->
                 </div>    
@@ -67,9 +67,10 @@ export default {
         },
     },
     filters: {
-        moment: function (value) {
+        unixFormat: function (value) {
             if (value) {
-                return moment(String(value)).format('YYYY')
+                return moment.unix(value).format('MM-DD-YYYY hh:mm')
+                // 'MM/DD/YYYY hh:mm'
             }
         }
     },
