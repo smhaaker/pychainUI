@@ -8,7 +8,6 @@
         <div class="keywrapper">
             <p v-if="togglePrivate" class="keys">Private Key: {{private_key}}</p>
         </div>
-        
     </div>
 </template>
 
@@ -38,7 +37,6 @@ export default {
         margin-left: 10px;
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     }
-
     .toggleKeys{      
         margin-left: 10px;
         padding: 10px;
@@ -49,17 +47,14 @@ export default {
         -webkit-transition-duration: 0.4s;
         cursor: pointer;border-radius: 4px;
     }
-
     .toggleKeys:hover{
         background-color: white; 
         color: black; 
     }
-
     .keys{
         width:95%;
         white-space: pre-wrap;
         word-wrap: break-word;
         padding: 10px;
      }
-
 </style>

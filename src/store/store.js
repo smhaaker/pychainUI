@@ -7,10 +7,10 @@ export const store = new Vuex.Store({
         wallet: 'blank',
         public_key: 'public_key',
         private_key: 'private_key',
-        funds: 0,
+        funds: null,
         current_block: null,
         blockchain: [          
-            {"index":1, "previous_hash":"Tom"},
+            {"index":0, "previous_hash":""},
         ],
     },
     getters: {

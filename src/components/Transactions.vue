@@ -9,17 +9,20 @@
         <!-- <button class="btn btn-primary" @click="onLoadData">{{ view === 'chain' ? 'Load Blockchain' : 'Load Transactions' }}</button> -->
         <ul class="transactions">
             <li v-for="block in paginate" :key="block.index">
-                Block Number:   {{block.index}}
-                Timestamp: {{block.timestamp}}
-                   
+                <div class="transacationdiv">               
+                    Block Number: {{block.index}}
+                    Timestamp: {{block.timestamp}}
+
+                    <!-- <span>{{ moment(block.timestamp).format('MMMM Do YYYY, h:mm:ss a') }}</span> -->
+                    <!-- <span>{{ block.timestamp | moment('YYYY')}}</span> -->
+                </div>    
                 <div v-for="tx in block.transactions" :key="tx.index" class="blockList">
-                        <div>previous_hash: {{ block.previous_hash }}</div>
-                        <div>Sender: {{ tx.sender }}</div>
-                        <div>Recipient: {{ tx.recipient }}</div>
-                        <div>Amount: {{ tx.amount }}</div>
+                    <div>previous_hash: {{ block.previous_hash }}</div>
+                    <div>Sender: {{ tx.sender }}</div>
+                    <div>Recipient: {{ tx.recipient }}</div>
+                    <div>Amount: {{ tx.amount }}</div>
                 </div>
             </li>
-            
         </ul>
 
     </div>
@@ -27,28 +30,10 @@
 
 <script>
 import axios from 'axios';
+import moment from 'moment'
 export default {
     data () {
         return {
-        wallet: {
-            private_key: 'none',
-            public_key: 'none'
-        },
-        wallet: null,
-        view: 'chain',
-        walletLoading: false,
-        txLoading: false,
-        dataLoading: false,
-        showElement: null,
-        error: null,
-        success: null,
-        funds: 0,
-        block: 0,
-        funds: null,
-        outgoingTx: {
-            recipient: '',
-            amount: 0
-        },
         searchKey: '',
         currentPage: 1,
         itemsPerPage: 10,
@@ -80,12 +65,19 @@ export default {
         blockchain(){
             return this.$store.state.blockchain;
         },
-
+    },
+    filters: {
+        moment: function (value) {
+            if (value) {
+                return moment(String(value)).format('YYYY')
+            }
+        }
     },
     methods: {
         setPage: function(pageNumber) {
           this.currentPage = pageNumber
         },
+
 //         onLoadData: function () {
 //             window.setInterval(() => { // setting interval for frequency 
 //             if (this.view === 'chain') {
@@ -137,10 +129,10 @@ export default {
 }
 
 .transactions li{
-    background-color: blue;
+    background-color: #555555;
     color: white;
-    border: 1px solid orange;
-    padding: 5px;
+    border: 1px solid #555555;
+    padding: 0px;
  
 } 
 
@@ -154,7 +146,10 @@ export default {
     padding: 10px;
 } 
 
-
+.transacationdiv {
+    padding: 10px;
+    border: 1px solid orange;
+}
 
 .pagination {
     display: inline-block;
