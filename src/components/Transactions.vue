@@ -29,7 +29,6 @@
 </template>
 
 <script>
-import axios from 'axios';
 import moment from 'moment'
 export default {
     data () {
@@ -43,9 +42,9 @@ export default {
     computed: {
         loadedData: function () {
             if (this.view === 'chain') {
-            return this.blockchain;
+                return this.blockchain;
             } else {
-            return this.openTransactions
+                return this.openTransactions
             }
         },
         totalPages: function() {
@@ -69,7 +68,7 @@ export default {
     filters: {
         unixFormat: function (value) {
             if (value) {
-                return moment.unix(value).format('MM-DD-YYYY hh:mm')
+                return moment.unix(value).format('MM-DD-YYYY hh:mm:ss')
                 // 'MM/DD/YYYY hh:mm'
             }
         }
@@ -78,53 +77,12 @@ export default {
         setPage: function(pageNumber) {
           this.currentPage = pageNumber
         },
-
-//         onLoadData: function () {
-//             window.setInterval(() => { // setting interval for frequency 
-//             if (this.view === 'chain') {
-//                 var vm = this
-//                 this.dataLoading = true
-//                 axios.get('http://localhost:5000/chain')
-//                     .then(function (response){
-// //                        console.log(response.data[response.data.length - 1 ].index) // last block index
-//                         console.log(response.data)
-//                         vm.block = response.data.length - 1// loads last block
-//                         vm.blockchain = response.data
-//                         vm.dataLoading = false
-//                         // console.log(vm.blockchain)
-//                         console.log(vm.block)
-//                     })
-//                     .catch(function (error){
-//                         vm.dataLoading = false
-//                         vm.error = 'Something went wrong'
-//                     });
-//             } else {
-//                 var vm = this
-//                 axios.get('http://localhost:5000/transactions')
-//                     .then(function (response){
-//                         console.log(response.data)
-//                         vm.openTransactions = response.data
-//                         vm.dataLoading = false
-//                     })
-//                     .catch(function (error){
-//                         vm.dataLoading = false
-//                         vm.error = 'Something went wrong'
-//                     });
-//                 }
-//             this.$store.state.current_block = vm.block
-//             },2000); //  just setting interval so it updates at same frequency 
-//         }
     },
-    // mounted: function(){
-    //     this.onLoadData();
-    // }
 }
 
 </script>
 
-
 <style>
-
 .transactions{
     background-color: white;
 }
@@ -136,22 +94,18 @@ export default {
     padding: 0px;
  
 } 
-
 .transactions ul{
     background-color: white;
     margin: 10px;
 } 
-
 .transactions a{
     background-color: antiquewhite;
     padding: 10px;
 } 
-
 .transacationdiv {
     padding: 10px;
     border: 1px solid orange;
 }
-
 .pagination {
     display: inline-block;
     background-color: white;

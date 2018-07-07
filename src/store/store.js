@@ -17,6 +17,7 @@ export const store = new Vuex.Store({
         // getfunds: state => {
         //     return state.funds
         // }
-        getfunds: state => state.funds
+        getfunds: state => state.funds,
+        gettransactions: state => state.blockchain.transactions,
     }
 });

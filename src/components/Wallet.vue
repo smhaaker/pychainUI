@@ -6,7 +6,7 @@
                 <button class="button" @click="onCreateWallet">Create Wallet</button>
                 <app-funds style="color:white"></app-funds>
                 <app-sendfunds></app-sendfunds>
-                <app-recenttransactions/>
+                <app-recenttransactions class="recent"></app-recenttransactions>
             </div>
             <div id="keys"><app-keys></app-keys>
             </div>
@@ -23,7 +23,7 @@
         background: white;
     }
     #wide {
-        flex: 1;
+        width: 60%;
         padding: 10px;
         background: aquamarine;
     }
