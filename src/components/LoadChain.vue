@@ -80,12 +80,12 @@ methods: {
             axios.get('http://localhost:5000/chain')
                 .then(function (response){
 //                        console.log(response.data[response.data.length - 1 ].index) // last block index
-                    console.log(response.data)
+                    // console.log(response.data)
                     vm.block = response.data.length - 1// loads last block
                     vm.blockchain = response.data
                     vm.dataLoading = false
                     // console.log(vm.blockchain)
-                    console.log(vm.block)
+                    // console.log(vm.block)
                 })
                 .catch(function (error){
                     vm.dataLoading = false
@@ -95,7 +95,7 @@ methods: {
             var vm = this
             axios.get('http://localhost:5000/transactions')
                 .then(function (response){
-                    console.log(response.data)
+                    // console.log(response.data)
                     vm.openTransactions = response.data
                     vm.dataLoading = false
                 })
