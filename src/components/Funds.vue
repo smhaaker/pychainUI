@@ -1,7 +1,6 @@
 <template>
     <div>
         <p class="funds">Current Funds: {{ getfunds }}</p>
-
     </div>
 </template>
 

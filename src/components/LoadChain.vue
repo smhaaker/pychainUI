@@ -13,7 +13,6 @@ export default {
     data () {
         return {
         blockchain: [          
-            {"index":1, "previous_hash":"Tom"},
         ],
         wallet: {
             private_key: 'none',

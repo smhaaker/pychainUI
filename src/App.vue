@@ -14,8 +14,6 @@
         <!-- <app-user></app-user> -->
         <app-loadchain></app-loadchain>   
 
-    <!-- Onload The chain -->
-    <!-- <appWallet></appWallet> -->
   </div>
 </template>
 
