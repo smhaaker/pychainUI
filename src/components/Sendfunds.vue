@@ -1,14 +1,20 @@
 <template>
     <div>
-        <p>Send funds</p>
-        <input type="text"  placeholder="pycoin address: 30819f300d06092a....">
-        <button class="button">SEND</button>
+        <div class="fundsstyle">
+            <button class="button">SEND</button>
+            <input type="text" placeholder="Send funds: pycoin address: 30819f300d06092a...." />
+        </div>
+        <!-- <app-funds style="color:white; padding-left: 10px;"></app-funds> -->
     </div>
 </template>
 
 <script>
+import Funds from './Funds.vue';
 export default {
-    
+        components:{
+            'app-funds': Funds,
+        },
+
 }
 </script>
 
@@ -29,7 +35,7 @@ export default {
         border: 3px solid #555;
     }
     .button {
-        margin-left: 10px;
+        margin-left: 0px;
         padding: 10px;
         width: 20%;
         background-color: #555555;
@@ -46,5 +52,10 @@ export default {
     .button:active{
         background-color: red;
     }
-
+    .right{
+        float: right;
+    }
+    .fundsstyle{
+        padding-top: 0px;
+    }
 </style>

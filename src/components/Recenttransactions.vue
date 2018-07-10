@@ -2,21 +2,21 @@
     <div >
         <h3>Last 10 Transactions:</h3>
         <ul class="recentTransactions">
-        <li v-for="block in blockchain.slice(blockchain.length - 10, blockchain.length)"
+        <li v-for="block in blockchain.slice(blockchain.length - 10, blockchain.length).reverse()"
         :key="block.index">
-                    <div class="blkNumber">Block Number: {{block.index}}</div>
                     <div v-for="tx in block.transactions" :key="tx.index">
+                    <div class="blkNumber">
+                        Block Number: {{block.index}} 
+                        <span class="right">Amount Sent: {{tx.amount}}</span></div>
                     <!-- <div>previous_hash: {{ block.previous_hash }}</div> -->
                     <div class="transactionBox">
                         <div>Recipient: {{ tx.recipient }}</div>
                         <div>Sender: {{ tx.sender }}</div>
-                        <div>Amount: {{ tx.amount }}</div>
                     </div>
                 </div>
         </li>
         </ul>
     </div>
-
 
 </template>
 
@@ -25,6 +25,7 @@ import moment from 'moment'
 export default {
     data () {
         return {
+        showElement: null,
         currentPage: 1,
         itemsPerPage: 10,
         resultCount: 0,
@@ -42,21 +43,6 @@ export default {
         totalPages: function() {
             return Math.ceil(this.resultCount / this.itemsPerPage)
         },
-        paginate: function() {
-            if (!this.blockchain || this.blockchain.length != this.blockchain.length) {
-                return
-            }
-            // this.resultCount = this.blockchain.length // need lenght of chain where only current address is used
-            // so we need a loop here to go over blockchain.length blockchain[1-blockchain.length]
-            // first loop over blockchain, then loop over transactions in that chain. Then match string.
-            this.resultCount = this.blockchain.length;
-            if (this.currentPage >= this.totalPages) {
-              this.currentPage = this.totalPages
-            }
-            this.currentPage = this.totalPages; 
-            var index = this.currentPage * this.itemsPerPage - this.itemsPerPage
-            return this.blockchain.slice(index, index + this.itemsPerPage)
-        },
         blockchain(){
             return this.$store.state.blockchain;
         },
@@ -64,20 +50,9 @@ export default {
             return this.$store.state.public_key;
         },
      },
-    filters: {
-        unixFormat: function (value) {
-            if (value) {
-                return moment.unix(value).format('MM-DD-YYYY hh:mm:ss')
-                // 'MM/DD/YYYY hh:mm'
-            }
-        },
-    },
     methods: {
         setPage: function(pageNumber) {
-          this.currentPage = pageNumber
-        },
-        gettransactionsMethod() { 
-            return this.$store.getters.gettransactions;
+            this.currentPage = pageNumber
         },
     },
     
@@ -88,16 +63,23 @@ export default {
     .blkNumber{
         margin-top: 10px;
         background-color: orange;
+        padding: 10px;
     }
     .recentTransactions{
         background-color: inherit;
     }
     .transactionBox{
+        font-size: 0.8em;
         background-color: white;
         white-space: pre-wrap;
         word-wrap: break-word;
         padding: 10px;
         border: solid 1px black;
     }
-
+    .collapse{
+        background-color: green;
+    }
+    .showElement{
+        background-color: orange;
+    }
 </style>
