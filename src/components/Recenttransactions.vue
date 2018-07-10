@@ -1,68 +1,34 @@
 <template>
     <div >
-
-        <span>FOR LOOP: {{testoutput}}</span>
-
-         <span>{{currentAddress}}</span>
-         <span>CURRENT!!!! {{blockchain[10].transactions[0].amount}}</span><br/>
-                  <!-- <span>{{currentSender}}</span> -->
-
-            <!-- <li v-for='block in blockchain' :key="block.index">{{block}} <br/><br/><span>{{gettransactions.transactions[0].recipient}}</span><br/><br/><br/><br/> </li> -->
-               <!-- <span>{{newchain(146)}}</span> -->
-               <!-- looks like we need to use this https://vuejs.org/v2/guide/migration.html#Filters-Outside-Text-Interpolations-removed
-                use filter in div class blockinfo instead of v for.  -->
-
-            <!-- <span>{{gettransactions.transactions[0].recipient}}</span> -->
-    <!-- <span>{{testoutput}}</span> -->
-
-                  <span>{{searchKey}}</span>
-        <!-- <input type="text" v-model="searchKey"> -->
-        <ul class="pagination" >
-            <li active-class="active" class="pagination" v-for="pageNumber in totalPages" :key="pageNumber.id" v-if="Math.abs(pageNumber - currentPage) < 7 || pageNumber == totalPages || pageNumber == 1">
-            <a active-class="active" class="pagination" v-bind:key="pageNumber" href="#" @click="setPage(pageNumber)" :class="{current: currentPage === pageNumber, last: (pageNumber == totalPages && Math.abs(pageNumber - currentPage) > 3), first:(pageNumber == 1 && Math.abs(pageNumber - currentPage) > 3)}">{{ pageNumber }}</a>
-            </li>
-        </ul>
-
-<input type="text" v-model="searchKey">
-        <ul>
-            <li v-for="block in paginate" :key="block.index">
-                <div class="blockinfo" v-for="tx in block.transactions" v-if="currentAddress == tx.recipient || currentAddress == tx.sender" :key="tx.index">               
-                    Block Number: {{block.index}}
-                    <span>{{block.timestamp | unixFormat}}</span>
-                </div>    
-
-                <div class="blockinfo" v-for="tx in block.transactions" v-if="currentAddress == tx.recipient || currentAddress == tx.sender" :key="tx.index">
-                    <div>previous_hash: {{ block.previous_hash }}</div>
-                    <div>Sender: {{ tx.sender }}</div>
-                    <div class="recentrecipient">Recipient: {{ tx.recipient }}</div>
-                    <div>Amount: {{ tx.amount }}</div>
-                    <div>currentAddress equals sender or recipient: {{currentAddress == tx.recipient || currentAddress == tx.sender}}</div>
+        <h3>Last 10 Transactions:</h3>
+        <ul class="recentTransactions">
+        <li v-for="block in blockchain.slice(blockchain.length - 10, blockchain.length)"
+        :key="block.index">
+                    <div class="blkNumber">Block Number: {{block.index}}</div>
+                    <div v-for="tx in block.transactions" :key="tx.index">
+                    <!-- <div>previous_hash: {{ block.previous_hash }}</div> -->
+                    <div class="transactionBox">
+                        <div>Recipient: {{ tx.recipient }}</div>
+                        <div>Sender: {{ tx.sender }}</div>
+                        <div>Amount: {{ tx.amount }}</div>
+                    </div>
                 </div>
-            </li>
+        </li>
         </ul>
-
     </div>
 
-    <!-- <div>
-        <p>Transaction List</p>
-        <ul class="transactionlist">
-            <li>One</li>
-            <li>Two</li>
-            <li>Three</li>
-            <li>Four</li>
-        </ul>
-    </div> -->
+
 </template>
-data () { return this.$store[this.topicId][this.dayStamp] }
+
 <script>
 import moment from 'moment'
 export default {
     data () {
         return {
-        searchKey: 'ddd',
         currentPage: 1,
         itemsPerPage: 10,
         resultCount: 0,
+        showLastItems: 10,
         }
     },
     computed: {
@@ -87,21 +53,9 @@ export default {
             if (this.currentPage >= this.totalPages) {
               this.currentPage = this.totalPages
             }
+            this.currentPage = this.totalPages; 
             var index = this.currentPage * this.itemsPerPage - this.itemsPerPage
             return this.blockchain.slice(index, index + this.itemsPerPage)
-        },
-        testoutput(){
-            let total = 10;
-            let secondtotal = 0;
-            for(let i = 0; i <= this.blockchain.length; i++){
-                    total = i;
-                    total += this.blockchain[10].transactions.length;
-                // for(let j = 0; j <= this.blockchain[i].length; j++){
-                //     total = j;
-                // }
-            }
-            // total = this.blockchain.length
-            return total  + "   BLAH BLAH BLAH   " + this.blockchain[10].transactions.length;
         },
         blockchain(){
             return this.$store.state.blockchain;
@@ -109,10 +63,7 @@ export default {
         currentAddress(){
             return this.$store.state.public_key;
         },
-        gettransactions() { 
-            return this.$store.getters.gettransactions;
-        },
-    },
+     },
     filters: {
         unixFormat: function (value) {
             if (value) {
@@ -125,10 +76,6 @@ export default {
         setPage: function(pageNumber) {
           this.currentPage = pageNumber
         },
-        newchain: function(number){
-            console.log(this.$store.state.blockchain[number].transactions[0].recipient)
-            return this.$store.state.blockchain[number].transactions[0].recipient;
-        },
         gettransactionsMethod() { 
             return this.$store.getters.gettransactions;
         },
@@ -138,24 +85,19 @@ export default {
 </script>
 
 <style>
-    .transactionlist{
-        display: block;
+    .blkNumber{
+        margin-top: 10px;
+        background-color: orange;
+    }
+    .recentTransactions{
+        background-color: inherit;
+    }
+    .transactionBox{
         background-color: white;
         white-space: pre-wrap;
         word-wrap: break-word;
-    }
-    .transactionlist li{
-        background-color: gray;
-        margin: 10px;
-    }
-    .recentrecipient{
-        white-space: pre-wrap;
-        word-wrap: break-word;
-    }
-    .blockinfo{
         padding: 10px;
+        border: solid 1px black;
     }
-    .pagination{
-        background-color: white;
-    }
+
 </style>
