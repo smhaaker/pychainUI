@@ -52,8 +52,8 @@ html {
         line-height: 20px;
     }
     h3{
-        color: gray;
-        padding: 10px;
+        color: black;
+        padding: 5px;
     }
     #funds {
         float: right;

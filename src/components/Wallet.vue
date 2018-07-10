@@ -3,6 +3,8 @@
          <div id="parent">
             <div id="wide">
                 <button class="button right" @click="onCreateWallet" :class="{ disabled: isDisabled }" :disabled="isDisabled">Create Wallet</button>
+                <button class="button right">Mine</button>
+                <button class="button right">Resolve</button>
                 <!-- <button class="btn" type="submit" :class="{ disabled: isDisabled }" :disabled="isDisabled">Submit</button> -->
                 <!-- <app-funds style="color:white"></app-funds> -->
                 <app-sendfunds></app-sendfunds>

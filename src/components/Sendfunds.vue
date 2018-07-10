@@ -35,7 +35,8 @@ export default {
         border: 3px solid #555;
     }
     .button {
-        margin-left: 0px;
+        margin-right: 5px;
+        margin-left: 5px;
         padding: 10px;
         width: 20%;
         background-color: #555555;
