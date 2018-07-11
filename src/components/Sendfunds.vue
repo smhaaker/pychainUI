@@ -2,16 +2,20 @@
     <div>
         <div class="fundsstyle">
             <button class="button" @click="onSendTx">SEND</button>
-            <input v-model="outgoingTx.recipient" type="text" placeholder="Send funds: pycoin address: 30819f300d06092a...." />
-            <input v-model.number="outgoingTx.amount" type="text" placeholder="Amount...." />
+            <div class="pushDown">
+                <input v-model="outgoingTx.recipient" type="text" placeholder="Send funds: pycoin address: 30819f300d06092a...." />
+                <input v-model.number="outgoingTx.amount" type="text" placeholder="Amount...." />
+            </div>
         </div>
 
-                <div v-if="error" class="alert alert-danger" role="alert">
+        <div>
+            <div v-if="error" class="alert alert-danger" role="alert">
                 {{ error }}
-                </div>
-                <div v-if="success" class="alert alert-success" role="alert">
-                <pre v-html="success">{{ success }}</pre>
-                </div>
+            </div>
+            <div v-if="success" class="alert alert-success" role="alert">
+                {{ success }}
+            </div>
+        </div>
         <!-- <app-funds style="color:white; padding-left: 10px;"></app-funds> -->
     </div>
 </template>
@@ -98,5 +102,23 @@ export default {
     }
     .fundsstyle{
         padding-top: 0px;
+    }
+    .alert{
+        margin-top: 10px;
+        border-radius: 5px;
+        padding: 15px;
+        border: 1px solid gray;
+    }
+    .alert-danger{
+        background-color: white;
+        border: 2px solid red;
+        font-size: 0.9em;
+    }
+    .alert-success{
+        background-color: white;
+        border: 2px solid greenyellow;
+    }
+    .pushDown{
+        margin-top: 10px;
     }
 </style>

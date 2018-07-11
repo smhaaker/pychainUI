@@ -27,10 +27,13 @@
     #wide {
         width: 60%;
         padding: 10px;
-        background: aquamarine;
+        background: white;
+        border-right: 1px solid orange;
     }
     .btn{
         background-color: azure;
+    }
+    .recent{
     }
 </style>
 
@@ -44,10 +47,6 @@
     export default {
         data () {
             return {
-            wallet: {
-                private_key: 'none',
-                public_key: 'none'
-            },
             success: '',
             keyLength: this.$store.state.public_key,
             }

@@ -64,7 +64,6 @@ html {
         float: right;
         padding: 1px;
         padding-right: 10px;
-        
     }
     ul {
         font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -81,7 +80,7 @@ html {
     .nav li:last-child {
         border-right: none;
     }
-    .nav  li a {
+    .nav li a {
         display: block;
         color: white;
         text-align: center;

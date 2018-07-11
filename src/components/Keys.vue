@@ -39,6 +39,7 @@ export default {
     }
     .toggleKeys{      
         margin-left: 10px;
+        margin-top: 10px;
         padding: 10px;
         width: 20%;
         background-color: #555555;

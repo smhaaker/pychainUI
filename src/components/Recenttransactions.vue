@@ -1,5 +1,5 @@
 <template>
-    <div >
+    <div>
         <h3>Last 10 Blocks:</h3>
         <ul class="recentTransactions">
         <li v-for="block in blockchain.slice(blockchain.length - 10, blockchain.length).reverse()"
@@ -65,6 +65,7 @@ export default {
         background-color: orange;
         padding: 10px;
     }
+
     .recentTransactions{
         background-color: inherit;
     }
