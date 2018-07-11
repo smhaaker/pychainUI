@@ -3,8 +3,8 @@
          <div id="parent">
             <div id="wide">
                 <button class="button right" @click="onCreateWallet" :class="{ disabled: isDisabled }" :disabled="isDisabled">Create Wallet</button>
-                <button class="button right">Mine</button>
-                <button class="button right">Resolve</button>
+                <button class="button right" @click="onMine">Mine</button>
+                <button class="button right" @click="onResolve">Resolve</button>
                 <!-- <button class="btn" type="submit" :class="{ disabled: isDisabled }" :disabled="isDisabled">Submit</button> -->
                 <!-- <app-funds style="color:white"></app-funds> -->
                 <app-sendfunds></app-sendfunds>
@@ -36,7 +36,6 @@
 
 <script>
     import axios from 'axios';
-    import NewComponent from './NewComponent.vue';
     import Keys from './Keys.vue';
     import Funds from './Funds.vue';
     import Sendfunds from './Sendfunds.vue';
@@ -54,7 +53,6 @@
             }
         },
         components:{
-            'app-info': NewComponent,
             'app-keys': Keys,
             'app-funds': Funds,
             'app-sendfunds': Sendfunds,
@@ -91,6 +89,34 @@
                         vm.wallet = null;
                         vm.walletLoading = false
                     });
+            },
+            onMine: function() {
+                var vm = this
+                axios.post('http://localhost:5000/mine')
+                    .then(function(response){
+                        vm.error = null;
+                        vm.success = response.data.message;
+                        // console.log(response.data);
+                        vm.funds = response.data.funds;
+                        console.log(vm.success)
+                    })
+                    .catch(function (error){
+                        vm.success = null;
+                        vm.error = error.response.data.message;
+                    })
+            },
+            onResolve: function(){
+                var vm = this
+                axios.post('http://localhost:5000/resolve_conflicts')
+                    .then(function(response){
+                        vm.error = null;
+                        vm.success = response.data.message;
+                        console.log(vm.success)
+                    })
+                    .catch(function (error){
+                        vm.success = null;
+                        vm.error = error.response.data.message;
+                    })
             },
         }
     }

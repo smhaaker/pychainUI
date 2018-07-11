@@ -1,6 +1,6 @@
 <template>
     <div >
-        <h3>Last 10 Transactions:</h3>
+        <h3>Last 10 Blocks:</h3>
         <ul class="recentTransactions">
         <li v-for="block in blockchain.slice(blockchain.length - 10, blockchain.length).reverse()"
         :key="block.index">
