@@ -1,20 +1,60 @@
 <template>
     <div>
         <div class="fundsstyle">
-            <button class="button">SEND</button>
-            <input type="text" placeholder="Send funds: pycoin address: 30819f300d06092a...." />
+            <button class="button" @click="onSendTx">SEND</button>
+            <input v-model="outgoingTx.recipient" type="text" placeholder="Send funds: pycoin address: 30819f300d06092a...." />
+            <input v-model.number="outgoingTx.amount" type="text" placeholder="Amount...." />
         </div>
+
+                <div v-if="error" class="alert alert-danger" role="alert">
+                {{ error }}
+                </div>
+                <div v-if="success" class="alert alert-success" role="alert">
+                <pre v-html="success">{{ success }}</pre>
+                </div>
         <!-- <app-funds style="color:white; padding-left: 10px;"></app-funds> -->
     </div>
 </template>
 
 <script>
 import Funds from './Funds.vue';
+import axios from 'axios';
 export default {
-        components:{
-            'app-funds': Funds,
+    data () {
+        return {
+            outgoingTx: {
+                recipient: '',
+                amount: 0
+            },
+            error: null,
+            success: null
+        }
+    },
+    components:{
+        'app-funds': Funds,
+    },
+    methods:{
+        onSendTx: function () {
+            this.txLoading = true;
+            var vm = this;
+            axios.post('http://localhost:5000/transaction', {
+                recipient: this.outgoingTx.recipient,
+                amount: this.outgoingTx.amount
+            })
+                .then(function(response){
+                    vm.error = null;
+                    vm.success = response.data.message;
+                    console.log(response.data);
+                    vm.funds = response.data.funds;
+                    vm.txLoading = false;
+                })
+                .catch(function (error){
+                    vm.success = null;
+                    vm.error = error.response.data.message;
+                    vm.txLoading = false;
+                })
         },
-
+    }
 }
 </script>
 
