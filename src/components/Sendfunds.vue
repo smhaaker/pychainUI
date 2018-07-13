@@ -8,20 +8,24 @@
             </div>
         </div>
 
-        <div>
-            <div v-if="error" class="alert alert-danger" role="alert">
-                {{ error }}
-            </div>
-            <div v-if="success" class="alert alert-success" role="alert">
-                {{ success }}
-            </div>
+    <!-- <div>
+        <div v-if="error" class="alert alert-danger" role="alert">
+            {{ error }}
         </div>
+        <div v-if="success" class="alert alert-success" role="alert">
+            {{ success }}
+        </div>
+    </div> -->
+
+        <app-status v-html="error" v-if="error" class="alert alert-danger" role="alert"></app-status>
+        <app-status v-html="success" v-if="success" class="alert alert-success" role="alert"></app-status>
         <!-- <app-funds style="color:white; padding-left: 10px;"></app-funds> -->
     </div>
 </template>
 
 <script>
 import Funds from './Funds.vue';
+import Status from './Status.vue';
 import axios from 'axios';
 export default {
     data () {
@@ -36,6 +40,7 @@ export default {
     },
     components:{
         'app-funds': Funds,
+        'app-status': Status,
     },
     methods:{
         onSendTx: function () {
@@ -51,7 +56,7 @@ export default {
                     console.log(response.data);
                     vm.funds = response.data.funds;
                     vm.txLoading = false;
-                })
+            })
                 .catch(function (error){
                     vm.success = null;
                     vm.error = error.response.data.message;
@@ -60,6 +65,7 @@ export default {
         },
     }
 }
+
 </script>
 
 <style>

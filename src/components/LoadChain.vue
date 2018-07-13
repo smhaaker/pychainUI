@@ -32,12 +32,6 @@ export default {
             recipient: '',
             amount: 0
         },
-        // wallet: {
-        //     private_key: 'none',
-        //     public_key: 'none'
-        // },
-        success: '',
-        error: '',
         funds: 0,
         }
     },
@@ -69,7 +63,7 @@ methods: {
             this.$store.state.public_key = vm.wallet.public_key // write to store
             this.$store.state.private_key = vm.wallet.private_key
             this.$store.state.funds = vm.funds
-        },2000); //  just setting interval so it updates at same frequency 
+        }, 2000); //  just setting interval so it updates at same frequency 
     },
     onLoadData: function () {
         window.setInterval(() => { // setting interval for frequency 
