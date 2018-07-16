@@ -33,8 +33,7 @@
     .btn{
         background-color: azure;
     }
-    .recent{
-    }
+ 
 </style>
 
 <script>
@@ -47,7 +46,8 @@
     export default {
         data () {
             return {
-            success: '',
+            success: null,
+            error: null,
             keyLength: this.$store.state.public_key,
             }
         },

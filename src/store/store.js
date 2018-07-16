@@ -18,5 +18,6 @@ export const store = new Vuex.Store({
     getters: {
         getfunds: state => state.funds,
         gettransactions: state => state.blockchain[1],
+        geterror: state => state.error,
     }
 });

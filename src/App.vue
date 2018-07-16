@@ -7,6 +7,8 @@
             <router-link tag="li" active-class="active" to="/wallet"><a>Wallet</a></router-link>
             <router-link tag="li" active-class="active" style="float:right" to="/about"><a>About</a></router-link>
             <p id="fundsstyle">Current Block: {{current_block}}</p>
+            <app-status v-html="error" v-if="error" class="alertbar alertbar-danger"></app-status>
+            <app-status v-html="success" v-if="success" class="alertbar alertbar-success"></app-status>
             <app-funds id="fundsstyle"></app-funds>
         </ul>
     </div>
@@ -21,22 +23,31 @@
 import Keys from './components/Keys.vue'
 import Funds from './components/Funds.vue';
 import LoadChain from './components/LoadChain.vue';
+import Status from './components/Status.vue';
 export default {
   name: 'app',
   data () {
     return {
-      msg: 'FIRST',
+    //   error: "ERROR READING CHAIN",
+    //   success: "CHAIN LOADED"
     }
   },
   computed: {
     current_block(){
         return this.$store.state.current_block
     },
+    error(){
+        return this.$store.state.error
+    },
+    success(){
+        return this.$store.state.success
+    },
   },
   components: {
     'app-keys': Keys,
     'app-funds': Funds,
     'app-loadchain': LoadChain,
+    'app-status': Status,
   }
 }
 </script>
@@ -92,6 +103,19 @@ html {
     }
     .active {
         background-color: rgb(173, 0, 196);
+    }
+    .alertbar{
+        float: left;
+        background-color: #333;
+        padding: 14px 16px;
+    }
+    .alertbar-danger{
+        color: red;
+        font-size: 0.9em;
+    }
+    .alertbar-success{
+        color: greenyellow;
+        /* border: 2px solid greenyellow; */
     }
 </style>
 
