@@ -53,8 +53,7 @@ export default {
                 .then(function(response){
                     vm.error = null;
                     vm.success = response.data.message;
- 
-                    // console.log(response.data);
+                     // console.log(response.data);
                     vm.funds = response.data.funds;
                     vm.txLoading = false;
             })
@@ -62,11 +61,11 @@ export default {
                     vm.success = null;
                     vm.error = error.response.data.message;
                     vm.txLoading = false;
-                })
+            })
             console.log(vm.error)
             console.log(vm.success)
             this.$store.state.error = vm.error
-            this.$store.state.success = vm.success      
+            this.$store.state.success = vm.success
         },
     }
 }
