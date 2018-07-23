@@ -21,14 +21,13 @@
         display: flex;
     }
     #keys {
-        width: 40%;
+        width: 39%;
         background: white;
     }
     #wide {
-        width: 60%;
+        width: 59%;
         padding: 10px;
         background: white;
-        border-right: 1px solid orange;
     }
     .btn{
         background-color: azure;

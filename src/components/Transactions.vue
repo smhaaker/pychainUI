@@ -86,13 +86,11 @@ export default {
 .transactions{
     background-color: white;
 }
-
 .transactions li{
     background-color: #555555;
     color: white;
     border: 1px solid #555555;
     padding: 0px;
- 
 } 
 .transactions ul{
     background-color: white;

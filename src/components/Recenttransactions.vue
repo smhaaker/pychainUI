@@ -62,9 +62,9 @@ export default {
     .blkNumber{
         margin-top: 10px;
         background-color: orange;
+        border-top-left-radius: 10px;
         padding: 10px;
     }
-
     .recentTransactions{
         background-color: inherit;
     }
@@ -75,6 +75,8 @@ export default {
         word-wrap: break-word;
         padding: 10px;
         border: solid 1px black;
+        border-bottom-right-radius: 10px;
+        box-shadow: -1px -1px -1px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     }
     .collapse{
         background-color: green;
