@@ -13,7 +13,6 @@
         </ul>
     </div>
         <router-view></router-view>
-        <!-- <app-user></app-user> -->
         <app-loadchain></app-loadchain>   
 
   </div>

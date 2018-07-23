@@ -1,22 +1,15 @@
 <template>
     <div id="user">
-        <h3>The User</h3>
-        <p>Username: {{ username }}</p>  
+        <h3>Pychain Management Page in Vue JS</h3>
+        <p>This is a quick placeholder for a front page. Add components as needed</p> 
         <!-- <app-info></app-info>   -->
     </div>    
 </template>
 
 <script>
-import Info from './Info.vue'
+
 export default {
-  data () {
-    return {
-      username: 'Steffen'
-    }
-  },
-  components:{
-      'app-info': Info,
-  }
+
 }
 </script>
 

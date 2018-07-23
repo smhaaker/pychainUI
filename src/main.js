@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
-import User from './components/User.vue';
+import Welcome from './components/Welcome.vue';
 import VueRouter from 'vue-router';
 import axios from 'axios';
 import Info from './components/Info.vue';
@@ -16,7 +16,7 @@ const routes = [
   { path: '/wallet', component: Wallet},
   { path: '/chain', component:Chain},
   { path: '/info', component: Info},
-  { path: '/', component: User},
+  { path: '/', component: Welcome},
 ];
 
 const router = new VueRouter({
@@ -24,7 +24,7 @@ const router = new VueRouter({
   mode: 'history'
 })
 
-Vue.component('app-user', User)
+Vue.component('app-Welcome', Welcome)
 
 new Vue({
   el: '#app',
