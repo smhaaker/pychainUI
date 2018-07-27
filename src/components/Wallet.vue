@@ -113,11 +113,15 @@
                     .then(function(response){
                         vm.error = null;
                         vm.success = response.data.message;
+                        vm.$store.state.success = response.data.message;
+                        vm.$store.state.error = null;
                         console.log(vm.success)
                     })
                     .catch(function (error){
                         vm.success = null;
                         vm.error = error.response.data.message;
+                        vm.$store.state.success = null;
+                        vm.$store.state.error = error.response.data.message;
                     })
             },
         }

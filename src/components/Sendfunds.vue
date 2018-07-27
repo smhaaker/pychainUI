@@ -8,17 +8,8 @@
             </div>
         </div>
 
-    <!-- <div>
-        <div v-if="error" class="alert alert-danger" role="alert">
-            {{ error }}
-        </div>
-        <div v-if="success" class="alert alert-success" role="alert">
-            {{ success }}
-        </div>
-    </div> -->
-
-        <app-status v-html="success" v-if="success" class="alert alert-success" role="alert"></app-status>
-        <app-status v-html="error" v-if="error" class="alert alert-danger" role="alert"></app-status>
+        <!-- <app-status v-html="success" v-if="success" class="alert alert-success" role="alert"></app-status>
+        <app-status v-html="error" v-if="error" class="alert alert-danger" role="alert"></app-status> -->
 
         <!-- <app-funds style="color:white; padding-left: 10px;"></app-funds> -->
     </div>

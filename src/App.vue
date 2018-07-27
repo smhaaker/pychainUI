@@ -106,15 +106,15 @@ html {
     .alertbar{
         float: left;
         background-color: #333;
-        padding: 14px 16px;
     }
     .alertbar-danger{
         color: red;
-        font-size: 0.9em;
+        padding-top: 14px;
     }
     .alertbar-success{
         color: greenyellow;
         /* border: 2px solid greenyellow; */
+        padding: 14px 16px;
     }
 </style>
 
