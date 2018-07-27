@@ -7,8 +7,8 @@
             <router-link tag="li" active-class="active" to="/wallet"><a>Wallet</a></router-link>
             <router-link tag="li" active-class="active" style="float:right" to="/about"><a>About</a></router-link>
             <p id="fundsstyle">Current Block: {{current_block}}</p>
-            <app-status v-html="error" v-if="{error}" class="alertbar alertbar-danger"></app-status>
             <app-status v-html="success" v-if="{success}" class="alertbar alertbar-success"></app-status>
+            <app-status v-html="error" v-if="{error}" class="alertbar alertbar-danger"></app-status>
             <app-funds id="fundsstyle"></app-funds>
         </ul>
     </div>
@@ -42,13 +42,12 @@ export default {
         return this.$store.state.success
     },
   },
-
   components: {
     'app-keys': Keys,
     'app-funds': Funds,
     'app-loadchain': LoadChain,
     'app-status': Status,
-  }
+  },
 }
 </script>
 

@@ -97,10 +97,14 @@
                         // console.log(response.data);
                         vm.funds = response.data.funds;
                         console.log(vm.success)
+                        vm.$store.state.success = response.data.message;
+                        vm.$store.state.error = null;
                     })
                     .catch(function (error){
                         vm.success = null;
                         vm.error = error.response.data.message;
+                        vm.$store.state.success = null;
+                        vm.$store.state.error = error.response.data.message;
                     })
             },
             onResolve: function(){

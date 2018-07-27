@@ -17,8 +17,9 @@
         </div>
     </div> -->
 
-        <app-status v-html="error" v-if="error" class="alert alert-danger" role="alert"></app-status>
         <app-status v-html="success" v-if="success" class="alert alert-success" role="alert"></app-status>
+        <app-status v-html="error" v-if="error" class="alert alert-danger" role="alert"></app-status>
+
         <!-- <app-funds style="color:white; padding-left: 10px;"></app-funds> -->
     </div>
 </template>
@@ -27,6 +28,7 @@
 import Funds from './Funds.vue';
 import Status from './Status.vue';
 import axios from 'axios';
+// import store from '../store/store.js'
 export default {
     data () {
         return {
@@ -53,19 +55,23 @@ export default {
                 .then(function(response){
                     vm.error = null;
                     vm.success = response.data.message;
-                     // console.log(response.data);
+                    console.log("RESPONSE DATA : " + response.data.message);
                     vm.funds = response.data.funds;
                     vm.txLoading = false;
+                    vm.$store.state.success = response.data.message;
+                    vm.$store.state.error = null;
             })
                 .catch(function (error){
                     vm.success = null;
                     vm.error = error.response.data.message;
                     vm.txLoading = false;
+                    vm.$store.state.success = null;
+                    vm.$store.state.error = error.response.data.message;
             })
             console.log(vm.error)
             console.log(vm.success)
-            this.$store.state.error = vm.error
-            this.$store.state.success = vm.success
+            // this.$store.state.error = vm.error
+            // this.$store.state.success = vm.success
         },
     }
 }
