@@ -6,6 +6,7 @@ import axios from 'axios';
 import Info from './components/Info.vue';
 import Wallet from './components/Wallet.vue';
 import Chain from './components/Chain.vue';
+import About from './components/About.vue';
 import  { store } from './store/store';
 
 
@@ -17,6 +18,7 @@ const routes = [
   { path: '/chain', component:Chain},
   { path: '/info', component: Info},
   { path: '/', component: Welcome},
+  { path: '/about', component: About},
 ];
 
 const router = new VueRouter({

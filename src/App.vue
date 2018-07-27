@@ -75,6 +75,13 @@ html {
         padding: 1px;
         padding-right: 10px;
     }
+    p{
+        padding-left: 10px;
+    }
+    a{
+        text-decoration: none;
+        color: aqua;
+    }
     ul {
         font-family: Verdana, Geneva, Tahoma, sans-serif;
         list-style-type: none;
