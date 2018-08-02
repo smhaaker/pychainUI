@@ -7,6 +7,7 @@ import Info from './components/Info.vue';
 import Wallet from './components/Wallet.vue';
 import Chain from './components/Chain.vue';
 import About from './components/About.vue';
+import Network from './components/Network.vue';
 import  { store } from './store/store';
 
 
@@ -17,6 +18,7 @@ const routes = [
   { path: '/wallet', component: Wallet},
   { path: '/chain', component:Chain},
   { path: '/info', component: Info},
+  { path: '/network', component: Network},
   { path: '/', component: Welcome},
   { path: '/about', component: About},
 ];

@@ -5,6 +5,7 @@
             <router-link tag="li" active-class="active" exact to="/"><a>Home</a></router-link>
             <router-link tag="li" active-class="active" to="/chain"><a>Chain</a></router-link>
             <router-link tag="li" active-class="active" to="/wallet"><a>Wallet</a></router-link>
+            <router-link tag="li" active-class="active" to="/network"><a>Network</a></router-link>
             <router-link tag="li" active-class="active" style="float:right" to="/about"><a>About</a></router-link>
             <p id="fundsstyle">Current Block: {{current_block}}</p>
             <app-status v-html="success" v-if="{success}" class="alertbar alertbar-success"></app-status>
